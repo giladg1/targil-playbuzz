@@ -19,19 +19,6 @@ angular.module('url.module',[]).component('urlPlayer', {
             }
         };
 
-        const getSource = (src) => {
-            switch (src.source) {
-                case 'youtube':
-                    return 'http://www.youtube.com/embed/' + src.videoId;
-                    break;
-                case 'facebook':
-                    return 'https://www.facebook.com/facebook/videos/' + src.videoId;
-                    break;
-                default:
-                    return '';
-            }
-        };
-
         $scope.checkForError = (item) =>{
             const title = item.hasOwnProperty('title');
             const views = item.hasOwnProperty('views');

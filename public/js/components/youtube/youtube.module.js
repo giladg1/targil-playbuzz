@@ -11,27 +11,11 @@ angular.module('youtube.module',[]).component('youtubePlayer', {
         };
 
         $scope.getIframeSrc = (src) => {
-            const haveRegularUrl = src.hasOwnProperty('url');
-            const haveSource = src.hasOwnProperty('source');
-            if (haveRegularUrl) {
-                return src.url
-            } else if (haveSource) {
-                return getSource(src)
+            const videoId = src.hasOwnProperty('videoId');
+            if (videoId) {
+                return 'http://www.youtube.com/embed/' + src.videoId
             } else {
                 return ''
-            }
-        };
-
-        const getSource = (src) => {
-            switch (src.source) {
-                case 'youtube':
-                    return 'http://www.youtube.com/embed/' + src.videoId;
-                    break;
-                case 'facebook':
-                    return 'https://www.facebook.com/facebook/videos/' + src.videoId;
-                    break;
-                default:
-                    return '';
             }
         };
 
