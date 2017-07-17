@@ -1,0 +1,18 @@
+<div class="alert alert-danger boxWidth" ng-if="checkForError(ctrl.asset)">
+    <strong>Error!</strong> {{errorMessage(ctrl.asset)}}
+</div>
+
+<!-- each item should be here -->
+<div class="card boxWidth" ng-if="!checkForError(ctrl.asset)">
+    <!--<div class="card-block">-->
+    <div>
+        <p class="card-text1">{{ctrl.asset.title}}</p>
+        <p class="card-text2">{{ctrl.asset.views | viewOrder}}</p>
+    </div>
+
+    <video id='video-player' autoplay preload='metadata' controls>
+        <source ng-src="{{getOnlyRegularUrlVideoSrc(ctrl.asset)}}" type="video/mp4">
+    </video>
+
+    <!--</div>-->
+</div>

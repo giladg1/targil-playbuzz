@@ -1,0 +1,47 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-faded nav-personal">
+        <h1 class="navbar-brand mb-0" id="mainText">Video Feed</h1>
+    </nav>
+
+    <br><br>
+
+    <form novalidate class="data-form">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button type="submit" ng-click="getItems(data.filter)" class="btn btn-primary">Get Items</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="form-group">
+                    <label for="sel1">Filter:</label>
+                    <select class="form-control" id="sel1" ng-model="data.filter">
+                        <option  ng-repeat='filterItem in filterItems' ng-selected="filterItem === 'none'">{{filterItem}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <br><br>
+
+    <img ng-if="loaderPng" ng-src="../images/loading.png" class="loader"/>
+
+    <div ng-repeat="item in ourItems.items">
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3">
+
+                <youtube-player asset="item" ng-if="whatSource(item, 'youtube')"></youtube-player>
+                <facebook-player asset="item" ng-if="whatSource(item, 'facebook')"></facebook-player>
+                <url-player asset="item" ng-if="whatSource(item, 'url')"></url-player>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

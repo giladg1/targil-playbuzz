@@ -1,0 +1,9 @@
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/index.controller');
+
+router.get('/', controller.mainPage);
+
+router.post('/items', controller.getVideoItems);
+
+module.exports = router;
