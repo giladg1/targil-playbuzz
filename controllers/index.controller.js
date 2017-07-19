@@ -8,8 +8,6 @@ const getVideoItems = (req, res, next) => {
         req.winston.info('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         req.winston.info('body:', body); // Print the HTML for the Google homepage.
 
-        res.setHeader('Content-Type', 'application/json');
-
         let clientResponse = JSON.parse(body);
         let filter = _.get(req, 'body.ourFilterQuery', '');
         // if we got a query to filter, let's found out all items in the relevant type, else return all items
